@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    body {
+      background-color: blue;
+      color: white;
+      text-align: center;
+      font-size: larger;
+      margin-top: 20%;
+    }
+  </style>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello guys</h1>
+      <p class="para">Aaoo yha p</p>
+      <p class="para">Hello guys</p>
+      <p class="para">Buummmmmm</p>
+
+      <div class="child--one">First Child</div>
+      <div class="child--two">Second Child</div>
+      <div class="child--three">Third Child</div>
+    </div>
+    <form>
+      <label for="">Male</label>
+      <input type="radio" name="gender" />
+      <label for="">Female</label>
+      <input type="radio" name="gender" />
+    </form>
+    <button id="btn" onClick="clicked()">Click Me</button>
+  </body>
+</html>
+<script>
+  const clicked = () => {
+    let heading = document.getElementById("btn");
+    heading.innerHTML = "Bye Guys";
+    const childs = document.getElementsByClassName("child--one");
+    console.log(childs);
+    console.log(document.getElementsByTagName("h1"));
+    console.log(document.getElementsByName("gender"));
+    document.querySelector(".para").innerHTML = "Jaaoooo yha se";
+    console.log(document.querySelectorAll(".para"));
+  };
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20vh auto;
+      max-width: 500px;
+      border: 5px red solid;
+    }
+    .box {
+      margin: 1rem;
+      width: 20rem;
+      text-align: center;
+      border: 2px green solid;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h3>Set Interval</h3>
+        <p id="counting">Can we start counting</p>
+        <button id="btn">Click here</button>
+        <button onclick="clearInterval(timeRef)">STOP</button>
+        <p id="myName"></p>
+      </div>
+    </div>
+    <script>
+      // Set Interval
+      const btn = document.querySelector("#btn");
+      const counting = document.querySelector("#counting");
+      let num = 0;
+      let timeRef;
+      const startCounting = () => {
+        counting.innerHTML = "Loading ...👻";
+        timeRef = setInterval(() => {
+          counting.innerHTML = `${num}`;
+          num++;
+        }, 500);
+      };
+
+      btn.addEventListener("click", startCounting);
+    </script>
+  </body>
+</html>

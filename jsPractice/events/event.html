@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20vh auto;
+      max-width: 500px;
+      border: 5px red solid;
+    }
+    .box {
+      margin: 1rem;
+      width: 20rem;
+
+      border: 2px green solid;
+    }
+    span {
+      text-align: center;
+    }
+    #mouseEnter {
+      height: 70px;
+      width: 200px;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <span>
+          <p><a href="#" onclick="alert('No one use me')">Inline Alert</a></p>
+        </span>
+      </div>
+      <div class="box">
+        <span>
+          <p><a href="#" onclick="callingFunc()">Calling Func</a></p>
+        </span>
+      </div>
+      <div class="box">
+        <span>
+          <p><a href="#" id="inlineEvent">Inline Event</a></p>
+        </span>
+      </div>
+      <div class="box">
+        <span>
+          <p><a href="#" id="eventListener"> Event Listener</a></p>
+        </span>
+      </div>
+
+      <h2>Event Objects</h2>
+      <div class="box">
+        <p><a href="#" id="eventObject">Event Object</a></p>
+      </div>
+      <div class="box">
+        <p>
+          <a
+            href="#"
+            id="mouseEvent"
+            onMouseDown="mouseDown()"
+            onMouseUp="mouseUp()"
+            >Mouse Event in javaScript</a
+          >
+        </p>
+      </div>
+      <div class="box">
+        <div id="mouseEnter"></div>
+      </div>
+      <h2>Keyboard Events</h2>
+      <input
+        type="text"
+        onkeypress="onKeyPress()"
+        onkeydown="onKeyDown()"
+        onkeyup="onKeyUp()"
+      />
+      <p id="key"></p>
+
+      <h2>On change Events</h2>
+      <label for="">Enter Name</label>
+      <input type="text" id="name" />
+      <select id="icecream" onchange="changeSelection()">
+        <option value="">Select icecream</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="butterscotch">Butterscotch</option>
+      </select>
+      <p id="result"></p>
+    </div>
+    <script>
+      const callingFunc = () => {
+        alert("Most common way of writing function");
+      };
+      //3rd method
+      const inlineEvent = document.getElementById("inlineEvent");
+      inlineEvent.onclick = function () {
+        alert("Most common way of writing function againnnnn");
+      };
+      inlineEvent.onclick = function () {
+        console.log("Most common way of writing function againnnnn"); //this will over write above method
+      };
+      //4th method
+      const eventListener = document.querySelector("#eventListener");
+      eventListener.addEventListener("click", () => {
+        alert("I am in trend");
+      });
+      eventListener.addEventListener("click", () => {
+        console.log("I am in trend");
+      });
+      //event Object
+      const eventObject = document.getElementById("eventObject");
+      const checkEvent = () => {
+        console.log(event);
+        console.log(event.target);
+        console.log(event.type);
+      };
+      eventObject.addEventListener("click", checkEvent);
+      // mouse event
+      const mouseUp = () =>
+        (document.getElementById("mouseEvent").style.color = "yellow");
+      const mouseDown = () =>
+        (document.getElementById("mouseEvent").style.color = "orange");
+      //mouse enter and leave
+      const mouseE = document.getElementById("mouseEnter");
+      mouseE.addEventListener(
+        "mouseenter",
+        () => (mouseE.style.backgroundColor = "red")
+      );
+      mouseE.addEventListener(
+        "mouseleave",
+        () => (mouseE.style.backgroundColor = "blue")
+      );
+      //keyboard events
+
+      // const onKeyPress = () => {
+      //   document.getElementById(
+      //     "key"
+      //   ).innerHTML = `I got you ..You typed ${event.key} and its code is ${event.code}`;
+      // };
+      const onKeyUp = () => {
+        document.getElementById("key").innerHTML = `Key is up`;
+      };
+      const onKeyDown = () => {
+        document.getElementById("key").innerHTML = `Key is down`;
+      };
+      //onchange Events
+      const changeSelection = () => {
+        const name = document.getElementById("name").value;
+        const icecream = document.getElementById("icecream").value;
+        const result = document.getElementById("result");
+        result.innerHTML = `Mr ${name} selects ${icecream} icecream`;
+      };
+    </script>
+  </body>
+</html>

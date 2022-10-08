@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #parent {
+      height: 300px;
+      width: 300px;
+      background-color: orange;
+    }
+    #child {
+      height: 150px;
+      width: 150px;
+      background-color: green;
+    }
+  </style>
+  <body>
+    <div id="parent">
+      <div id="child"></div>
+    </div>
+  </body>
+  <script>
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+
+    // addEventListener ("kya krne p","kons func", "capturing - by default false")
+    parent.addEventListener(
+      "click",
+      () => {
+        alert("Parent div");
+      },
+      true // for capturing
+    );
+    child.addEventListener("click", () => {
+      alert("Child div");
+      // event.stopPropagation(); // to stop bubbling
+    });
+  </script>
+</html>
+
+<!-- For capuring write true in parent element -->
+<!-- For bubling  write event.stopPropagation() in child element -->

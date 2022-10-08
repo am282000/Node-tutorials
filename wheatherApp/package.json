@@ -1,0 +1,16 @@
+{
+  "name": "wheatherapp",
+  "version": "1.0.0",
+  "description": "WHeather App",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "requests": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Madaan Sahaab",
+  "license": "ISC"
+}

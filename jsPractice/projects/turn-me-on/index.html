@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turn me ON/OFF</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Can you turn the light On?</h1>
+      <button onclick="turnOn()">Turn me on</button>
+      <img
+        src="./images/bulb-off.png"
+        alt=""
+        id="myImg"
+        width="75px"
+        height="90px"
+      />
+      <button
+        onclick="document.getElementById('myImg').src='./images/bulb-off.png'"
+      >
+        Turn me off
+      </button>
+    </div>
+    <script>
+      const turnOn = () => {
+        document.getElementById("myImg").src = "./images/bulb-on.png";
+      };
+    </script>
+  </body>
+</html>
